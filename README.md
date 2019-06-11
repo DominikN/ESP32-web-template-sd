@@ -13,7 +13,8 @@ I tested every option and the most convenient for me is editing configuration fi
 ```
 {
 	"husarnet":{
-		"hostname":"esp32template",	"joincode":"fc94:b01d:1803:8dd8:b293:5c7d:7639:932a/xxxxxxxxxxxxxxxxxxxxxx"
+		"hostname":"esp32template",	
+		"joincode":"fc94:b01d:1803:8dd8:b293:5c7d:7639:932a/xxxxxxxxxxxxxxxxxxxxxx"
 	},
 	"wifi":[
 		{
