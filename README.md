@@ -4,7 +4,7 @@
 
 This project template is a good base for creating internet controled devices with a web UI. Here main points:
 
-**CONFIGURATION USING SD CARD**
+**I. CONFIGURATION USING SD CARD**
 
 One of the biggest problems in making connected things is the first configuration. Opening IDE just to change network credentials or hosted website is uncomfortable and takes to much time. Other options would be dedicated mobile app that you will use probably only once (one more?) or CLI over serial to your things (it's so easy to make a typo and redo the whole configuration again).
 
@@ -36,17 +36,18 @@ There are two blocks:
 - Husarnet credentials - Husarnet allows you to access your things over the internet just like they were in the same LAN network
 - WiFi credentials - place one or more SSID-Password pairs, so you will not need to change a configuration if you move your thing somewhere else
 
-**HTML FILE IS NOT HARDCODED**
+**II. HTML FILE IS NOT HARDCODED**
 
 Editing HTML files as a C/C++ char tables is not very convenient. This is why I moved HTML file to the SD card. The whole interface between web page and the hardware is through websockets, so you do not need to parse HTTP requests and your code is much cleaner. Websockets are also much faster than HTTP requests.
 
-**ACCESS OVER THE INTERNET USING VPN**
+**III. ACCESS OVER THE INTERNET USING VPN**
 
 There are a few benefits:
 - **very easy configuration of your devices** (you just need to provide a joincode and think of a name for your thing). Just take a look at JSON. Joincode is generated only once and you can use it to connect together your computer and ESP32 devices.
 - **access your device like it was in your LAN**. Website is hosted on ESP32 and you access that website directly over the internet. Husarnet gives only transparent connectivity layer working both in you LAN and over the internet the same way. Husarnet is basically a VPN.
 - **low latency**. Your computer (with Husarnet client installed) and ESP32 are connected peer-to-peer. Husarnet infrastructure only help your devices to find each other over the internet and is not used to forward user data after P2P connection is established. If your devices are in the same LAN network you will control it just over LAN.
 
+-- 
 
 A demo is really basic:
 
@@ -56,18 +57,22 @@ A demo is really basic:
 
 **A. HARDWARE**
 
-You need to connect SD card module to you ESP32 board. If you already have ESP32 dev board with SD card slot, other pins might be used, so you would need to modify also software part.
+Connect button to between G22 pin and GND.
+
+Connect LED with a serial resistor between G16 pin and GND.
+
+Connect SD card module to you ESP32 board: if you already have ESP32 dev board with SD card slot, other pins might be used, so you would need to modify also software part.
 
 Interface between my ESP32 dev board and SD card module is as follows:
 ```
-SD CARD	<-> ESP32 dev board
+SD CARD <-> ESP32 dev board
 
-CS		<-> G22           
-SCK		<-> G18
-MOSI	<-> G23
-MISO	<-> G19
-VCC		<-> 5V out
-GND		<-> GND
+CS      <-> G22           
+SCK     <-> G18
+MOSI    <-> G23
+MISO    <-> G19
+VCC     <-> 5V out
+GND     <-> GND
 ```
 
 Format SD card to FAT16/FAT32.
