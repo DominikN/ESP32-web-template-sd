@@ -13,8 +13,8 @@
 #define HTTP_PORT 8000
 #define WEBSOCKET_PORT 8001
 
-const int BUTTON_PIN = 18;
-const int LED_PIN = 17;
+const int BUTTON_PIN = 17;
+const int LED_PIN = 18;
 
 const int SDCS_PIN = 22;
 
