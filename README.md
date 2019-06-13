@@ -70,10 +70,11 @@ VCC		<-> 5V out
 GND		<-> GND
 ```
 
-Format SD card you are going to use and copy:
+Format SD card to FAT16/FAT32.
+
+Copy these files to a SD card just formated:
 - setting.js
 - index.htm
-files to the SD card. 
 
 Modify settings.js file by providing your own WiFi network credentials and Husarnet credentials. 
 
@@ -108,15 +109,22 @@ To run the project, open Arduino IDE and follow these steps:
 - select version `5.13.3`
 - click install button
 
-**4. Program ESP32 board:**
+**4. Install arduinoWebSockets library (Husarnet fork):**
+
+- download https://github.com/husarnet/arduinoWebSockets as a ZIP file (this is Husarnet compatible fork of arduinoWebSockets by Links2004 (Markus) )
+- open `Sketch -> Include Library -> Add .ZIP Library ... `
+- choose `arduinoWebSockets-master.zip` file that you just downloaded and click open button
+
+
+**5. Program ESP32 board:**
 
 - Open **ESP32-web-template-sd.ino** project
 - upload project to your ESP32 board.
 
-**5. Open WebUI:**
+**6. Open WebUI:**
 There are two options:
 
-1. log into your account at https://app.husarnet.com, find `esp32websocket` device that you just connected and click `web UI` button. You can also click `esp32websocket` element to open "Element settings" and select `Make the Web UI public` if you want to have a publically available address. In such a scenerio Husarnet proxy servers are used to provide you a web UI.
+1. log into your account at https://app.husarnet.com, find `esp32template` device that you just connected and click `web UI` button. You can also click `esp32template` element to open "Element settings" and select `Make the Web UI public` if you want to have a publically available address. In such a scenerio Husarnet proxy servers are used to provide you a web UI.
 2. P2P option - add your laptop to the same Husarnet network as ESP32 board. In that scenerio no proxy servers are used and you connect to ESP32 with a very low latency directly with no port forwarding on your router! Currenly only Linux client is available, so open your Linux terminal and type:
 
 - `$ curl https://install.husarnet.com/install.sh | sudo bash` to install Husarnet.
