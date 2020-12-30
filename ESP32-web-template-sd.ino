@@ -234,6 +234,7 @@ void taskWifi( void * parameter ) {
       Serial.println("IP address: ");
       Serial.println(WiFi.localIP());
 
+      Husarnet.selfHostedSetup("default");
       Husarnet.join(husarnet_conf.joincode, husarnet_conf.hostname);
       Husarnet.start();
 
