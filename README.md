@@ -97,15 +97,17 @@ To run the project, open Arduino IDE and follow these steps:
 **1. Install Husarnet package for ESP32:**
 
 - open `File -> Preferences`
-- in a field **Additional Board Manager URLs** add this link: `https://files.husarion.com/arduino/package_esp32_index.json`
+- in a field **Additional Board Manager URLs** add this link: `https://github.com/husarnet/arduino-esp32/releases/download/1.0.4-1/package_esp32_index.json`
 - open `Tools -> Board: ... -> Boards Manager ...`
 - Search for `esp32-husarnet by Husarion`
 - Click Install button
 
+Please note, that we include here a modified fork (mainly IPv6 support related changes) of official Arduino core for ESP32 - https://github.com/husarnet/arduino-esp32 . If you had installed the original version before, it is recommended to remove all others Arduino cores for ESP32 that you had in your system.
+
 **2. Select ESP32 dev board:**
 
 - open `Tools -> Board`
-- select **_ESP32 Dev Module_** under "ESP32 Arduino (Husarnet)" section
+- select **_ESP32 Dev Module_** under "ESP32 Arduino" section
 
 **3. Install ArduinoJson library:**
 
